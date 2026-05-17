@@ -1,6 +1,9 @@
 # Root Dockerfile that delegates to backend/Dockerfile
 FROM node:18-slim
 
+# Tell Puppeteer to skip downloading its own Chromium - we will use the system one installed below
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+
 # Install latest chrome dev package and fonts to support major charsets
 RUN apt-get update \
     && apt-get install -y wget gnupg \
@@ -16,8 +19,8 @@ WORKDIR /app
 # Copy backend package files
 COPY backend/package*.json ./
 
-# Install dependencies (production only)
-RUN npm ci --only=production || npm install --production
+# Install dependencies (production only, skip devDependencies, audits, and funds for speed)
+RUN npm install --omit=dev --no-audit --no-fund
 
 # Copy backend source code
 COPY backend/ .
