@@ -6,9 +6,9 @@ steps:
       - '--no-cache'
       - '-t'
       - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/certificategenerator:$COMMIT_SHA'
-      - './backend'   # <-- build context is the backend folder
+      - '.'   # <-- build context is the root folder
       - '-f'
-      - './backend/Dockerfile'   # <-- Dockerfile location
+      - './Dockerfile'   # <-- Dockerfile location
 
   # Step 2: Push the image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
