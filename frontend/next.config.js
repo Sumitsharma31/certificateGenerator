@@ -13,8 +13,6 @@ const nextConfig = {
   },
   // Optimize for production
   swcMinify: true,
-  // Enable modern output
-  output: 'standalone',
 }
 
 module.exports = nextConfig
