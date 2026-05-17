@@ -197,9 +197,19 @@ const generateCertificatePDF = async (certificate, user, internship, mentor, enr
     </html>
   `;
 
+  // Determine correct Chrome executable path for Puppeteer (e.g. inside Docker on Cloud Run)
+  let executablePath;
+  try {
+    await fs.access('/usr/bin/google-chrome-stable');
+    executablePath = '/usr/bin/google-chrome-stable';
+  } catch (e) {
+    executablePath = undefined;
+  }
+
   // Generate PDF using Puppeteer
   const browser = await puppeteer.launch({
     headless: 'new',
+    executablePath,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
   });
 
@@ -564,7 +574,32 @@ router.get('/download/:certId', async (req, res) => {
       await fs.access(filePath);
       res.sendFile(filePath);
     } catch (error) {
-      res.status(404).json({ error: 'Certificate PDF not found' });
+      console.log(`PDF not found locally for certificate ${certificate.certId}. Regenerating on-the-fly...`);
+      try {
+        const enrollment = await Enrollment.findOne({ certificateId: certificate._id });
+        const user = await User.findById(certificate.userId);
+        const internship = await Internship.findById(certificate.internshipId);
+        const mentor = internship ? await User.findById(internship.mentorId) : null;
+
+        if (!user || !internship) {
+          return res.status(404).json({ error: 'Required data to regenerate certificate not found' });
+        }
+
+        await generateCertificatePDF(
+          certificate,
+          user,
+          internship,
+          mentor,
+          enrollment
+        );
+
+        // Serve the newly generated PDF file
+        await fs.access(filePath);
+        res.sendFile(filePath);
+      } catch (genError) {
+        console.error('Error regenerating certificate PDF:', genError);
+        res.status(500).json({ error: 'Error regenerating certificate: ' + genError.message });
+      }
     }
   } catch (error) {
     console.error('Error downloading certificate:', error);
