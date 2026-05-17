@@ -15,7 +15,7 @@ const generateCertId = async () => {
 const generateSignature = (certId, userId, issuedAt) => {
   const data = `${certId}|${userId}|${issuedAt}`;
   return crypto
-    .createHmac('sha256', process.env.CERT_SECRET)
+    .createHmac('sha256', process.env.CERT_SECRET || 'fallback_secret_key_for_dev_only')
     .update(data)
     .digest('hex');
 };

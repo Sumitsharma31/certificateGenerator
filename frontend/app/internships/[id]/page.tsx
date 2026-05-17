@@ -72,25 +72,122 @@ const ModuleItem = ({ module, index }: { module: Module, index: number }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <div className="border border-slate-200 rounded-xl overflow-hidden bg-white">
+        <div className="border border-slate-200 rounded-xl overflow-hidden bg-white hover:shadow-md transition-shadow">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-4 bg-slate-50 hover:bg-slate-100 transition-colors text-left"
+                className="w-full flex items-center justify-between p-4 bg-slate-50 hover:bg-slate-100 transition-colors text-left group"
             >
                 <div className="flex items-center gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold">
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 text-sm font-bold group-hover:bg-blue-600 group-hover:text-white transition-colors">
                         {index + 1}
                     </span>
-                    <h4 className="font-semibold text-slate-900">{module.title}</h4>
+                    <h4 className="font-semibold text-slate-800">{module.title}</h4>
                 </div>
-                {isOpen ? <ChevronUp className="w-5 h-5 text-slate-500" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
+                {isOpen ? (
+                    <ChevronUp className="w-5 h-5 text-slate-400" />
+                ) : (
+                    <ChevronDown className="w-5 h-5 text-slate-400" />
+                )}
             </button>
 
             {isOpen && (
-                <div className="p-4 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-200 bg-white">
-                    <div className="pt-4 whitespace-pre-wrap">{module.content}</div>
+                <div className="p-4 bg-white border-t border-slate-100 text-slate-600 text-sm leading-relaxed whitespace-pre-wrap">
+                    {module.content}
                 </div>
             )}
+        </div>
+    )
+}
+
+// 3. Date Selection Modal
+const DateSelectionModal = ({
+    isOpen,
+    onClose,
+    onConfirm,
+    duration,
+    loading
+}: {
+    isOpen: boolean,
+    onClose: () => void,
+    onConfirm: (startDate: string, endDate: string) => void,
+    duration: string, // e.g., "2 Months", "6 Weeks"
+    loading: boolean
+}) => {
+    const [startDate, setStartDate] = useState('')
+    const [endDate, setEndDate] = useState('')
+
+    useEffect(() => {
+        if (startDate && duration) {
+            calculateEndDate(startDate, duration)
+        }
+    }, [startDate, duration])
+
+    const calculateEndDate = (start: string, durationStr: string) => {
+        const date = new Date(start)
+        const parts = durationStr.toLowerCase().split(' ')
+        const amount = parseInt(parts[0])
+        const unit = parts[1] || 'months' // Default to months if unit is missing
+
+        if (isNaN(amount)) return
+
+        if (unit.includes('month')) {
+            date.setMonth(date.getMonth() + amount)
+        } else if (unit.includes('week')) {
+            date.setDate(date.getDate() + (amount * 7))
+        }
+
+        setEndDate(date.toISOString().split('T')[0])
+    }
+
+    if (!isOpen) return null
+
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+            <div className="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl relative">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Select Internship Dates</h3>
+
+                <div className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1">Start Date</label>
+                        <input
+                            type="date"
+                            min={new Date(new Date().setMonth(new Date().getMonth() - 3)).toISOString().split('T')[0]}
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1">End Date (Calculated from Duration)</label>
+                        <input
+                            type="date"
+                            value={endDate}
+                            readOnly
+                            disabled
+                            className="w-full px-4 py-2 bg-slate-100 border border-slate-300 rounded-lg text-slate-500 cursor-not-allowed"
+                        />
+                        <p className="text-xs text-slate-500 mt-1">Based on duration: {duration}</p>
+                    </div>
+
+                    <div className="flex gap-3 pt-4">
+                        <button
+                            onClick={onClose}
+                            disabled={loading}
+                            className="flex-1 px-4 py-2 border border-slate-300 rounded-lg text-slate-700 font-medium hover:bg-slate-50"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            onClick={() => onConfirm(startDate, endDate)}
+                            disabled={!startDate || !endDate || loading}
+                            className="flex-1 px-4 py-2 bg-blue-600 rounded-lg text-white font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                        >
+                            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Proceed to Payment'}
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -105,6 +202,7 @@ export default function InternshipDetailsPage() {
     const [internship, setInternship] = useState<InternshipDetails | null>(null)
     const [loading, setLoading] = useState(true)
     const [enrolling, setEnrolling] = useState(false)
+    const [showDateModal, setShowDateModal] = useState(false)
 
     useEffect(() => {
         if (id) fetchInternship()
@@ -133,17 +231,23 @@ export default function InternshipDetailsPage() {
         })
     }
 
-    const handleEnroll = async () => {
+    const handleEnrollClick = () => {
         if (!user) {
             toast.error('Please login to enroll')
             router.push('/auth/login')
             return
         }
+        setShowDateModal(true)
+    }
 
+    const handleDateConfirm = async (startDate: string, endDate: string) => {
         setEnrolling(true) // Start Loading
         try {
             // 1. Call Backend to Create Enrollment & Order
-            const res = await api.post(`/internships/${id}/enroll`)
+            const res = await api.post(`/internships/${id}/enroll`, {
+                startDate,
+                endDate
+            })
 
             // 2. Check if Payment is required
             if (res.data.razorpayOrder) {
@@ -190,13 +294,13 @@ export default function InternshipDetailsPage() {
                     modal: {
                         ondismiss: function () {
                             toast('Payment cancelled');
-                            setEnrolling(false); // <--- Stops the loading loop
+                            setEnrolling(false);
                         }
                     },
 
                     prefill: {
-                        name: user.name,
-                        email: user.email,
+                        name: user?.name || '',
+                        email: user?.email || '',
                     },
                     theme: {
                         color: "#4f46e5",
@@ -221,6 +325,11 @@ export default function InternshipDetailsPage() {
             toast.error(error.response?.data?.error || 'Failed to enroll')
             setEnrolling(false) // Stop loading on API error
         }
+        // Don't close modal yet if error, allow retry? checking flows. 
+        // Actually if successful we redirect. If error we stay.
+        // We should ensure modal closes or stays based on logic.
+        // For now, let's keep modal open on error so they can retry or cancel.
+        // On success redirect happens.
     }
 
     if (loading) {
@@ -236,6 +345,14 @@ export default function InternshipDetailsPage() {
     return (
         <div className="min-h-screen bg-slate-50 pb-20">
             <Navbar />
+
+            <DateSelectionModal
+                isOpen={showDateModal}
+                onClose={() => setShowDateModal(false)}
+                onConfirm={handleDateConfirm}
+                duration={internship.duration || '1 Month'}
+                loading={enrolling}
+            />
 
             {/* Hero Header */}
             <div className="bg-white border-b border-slate-200">
@@ -333,7 +450,7 @@ export default function InternshipDetailsPage() {
                         </div>
 
                         <button
-                            onClick={handleEnroll}
+                            onClick={handleEnrollClick}
                             disabled={enrolling}
                             className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                         >

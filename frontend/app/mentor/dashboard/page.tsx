@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import api from '@/lib/api'
 import Navbar from '@/components/Navbar'
@@ -17,13 +18,26 @@ interface Internship {
 }
 
 export default function MentorDashboard() {
-  const { user } = useAuth()
+  const { user, loading: authLoading } = useAuth()
+  const router = useRouter()
   const [internships, setInternships] = useState<Internship[]>([])
   const [loading, setLoading] = useState(true)
 
+  // Auth guard — redirect if not logged in or not mentor
   useEffect(() => {
-    fetchInternships()
-  }, [])
+    if (authLoading) return
+    if (!user) {
+      router.replace('/auth/login')
+    } else if (user.role !== 'mentor') {
+      router.replace('/')
+    }
+  }, [user, authLoading, router])
+
+  useEffect(() => {
+    if (!authLoading && user?.role === 'mentor') {
+      fetchInternships()
+    }
+  }, [authLoading, user])
 
   const fetchInternships = async () => {
     try {

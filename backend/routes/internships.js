@@ -15,11 +15,11 @@ const router = express.Router();
 // @desc    Get all internships (with filters)
 router.get('/', async (req, res) => {
   try {
-    const { 
-      status = 'published', 
-      mentorId, 
-      search, 
-      minPrice, 
+    const {
+      status = 'published',
+      mentorId,
+      search,
+      minPrice,
       maxPrice,
       page = 1,
       limit = 10,
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     } = req.query;
 
     const query = {};
-    
+
     if (status) query.status = status;
     if (mentorId) query.mentorId = mentorId;
     if (minPrice || maxPrice) {
@@ -118,12 +118,12 @@ router.post('/',
 
       // Explicit Destructuring to match your model
       const {
-        title, description, priceInINR, duration, level, 
+        title, description, priceInINR, duration, level,
         image, seats, startDate, endDate, skills, modules, isPublished
       } = req.body;
 
       const internshipData = {
-        title, description, priceInINR, duration, level, 
+        title, description, priceInINR, duration, level,
         image, seats, startDate, endDate, skills, modules, isPublished,
         mentorId: req.user.role === 'admin' ? (req.body.mentorId || req.user._id) : req.user._id
       };
@@ -237,20 +237,20 @@ router.post('/:id/enroll',
       // --- SCENARIO A: Free Internship ---
       if (internship.priceInINR === 0) {
         if (enrollment) {
-            enrollment.status = 'active';
-            enrollment.joinedAt = new Date();
-            enrollment.payment = { status: 'captured', amount: 0, currency: 'INR' };
-            await enrollment.save();
+          enrollment.status = 'active';
+          enrollment.joinedAt = new Date();
+          enrollment.payment = { status: 'captured', amount: 0, currency: 'INR' };
+          await enrollment.save();
         } else {
-            enrollment = await Enrollment.create({
-                userId: req.user._id,
-                internshipId: internship._id,
-                status: 'active',
-                payment: { amount: 0, currency: 'INR', status: 'captured' },
-                joinedAt: new Date()
-            });
+          enrollment = await Enrollment.create({
+            userId: req.user._id,
+            internshipId: internship._id,
+            status: 'active',
+            payment: { amount: 0, currency: 'INR', status: 'captured' },
+            joinedAt: new Date()
+          });
         }
-        
+
         return res.json({
           success: true,
           message: 'Enrolled successfully',
@@ -259,23 +259,33 @@ router.post('/:id/enroll',
       }
 
       // --- SCENARIO B: Paid Internship (Razorpay) ---
-      
+
+      // Extract scheduled dates from request
+      const { startDate, endDate } = req.body;
+
       if (!enrollment) {
         enrollment = await Enrollment.create({
           userId: req.user._id,
           internshipId: internship._id,
           status: 'pending',
+          startDate: startDate || null,
+          endDate: endDate || null,
           payment: {
             amount: internship.priceInINR,
             currency: 'INR',
             status: 'pending'
           }
         });
+      } else if (startDate && endDate) {
+        // Update dates if retrying enrollment
+        enrollment.startDate = startDate;
+        enrollment.endDate = endDate;
+        await enrollment.save();
       }
 
       // *** FIX IS HERE: Shortened Receipt ID ***
       const receipt = `rcpt_${enrollment._id.toString().slice(-6)}_${Date.now()}`;
-      
+
       const orderResult = await createOrder(
         internship.priceInINR,
         receipt,
@@ -288,7 +298,7 @@ router.post('/:id/enroll',
 
       if (!orderResult.success) {
         if (enrollment.createdAt > new Date(Date.now() - 5000)) {
-             await enrollment.deleteOne();
+          await enrollment.deleteOne();
         }
         console.error("Razorpay Error:", orderResult.error); // Log error for debugging
         return res.status(500).json({ error: 'Failed to create payment order' });

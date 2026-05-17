@@ -85,6 +85,11 @@ const sendOTPEmail = async (email, otp) => {
 const sendCertificateEmail = async (email, userName, certificateUrl, certId) => {
   try {
     const transporter = createTransporter();
+    const path = require('path');
+
+    // Assume the file is stored in ../uploads/certificates relative to this file
+    // certificateUrl is likely absolute URL, so we construct local path
+    const pdfPath = path.join(__dirname, '../uploads/certificates', `cert_${certId}.pdf`);
 
     const mailOptions = {
       from: `"Internship Platform" <${process.env.FROM_EMAIL}>`,
@@ -111,8 +116,9 @@ const sendCertificateEmail = async (email, userName, certificateUrl, certId) => 
               <p>Hello ${userName},</p>
               <p>Congratulations! You have successfully completed your internship and your certificate is ready.</p>
               <p><strong>Certificate ID:</strong> ${certId}</p>
+              <p>We have attached your official certificate to this email.</p>
               <p style="text-align: center;">
-                <a href="${certificateUrl}" class="button">Download Certificate</a>
+                <a href="${certificateUrl}" class="button">View Certificate Online</a>
               </p>
               <p>You can also verify your certificate anytime using the verification link.</p>
               <p>Best regards,<br>Internship Platform Team</p>
@@ -120,7 +126,13 @@ const sendCertificateEmail = async (email, userName, certificateUrl, certId) => 
           </div>
         </body>
         </html>
-      `
+      `,
+      attachments: [
+        {
+          filename: `Certificate_${certId}.pdf`,
+          path: pdfPath
+        }
+      ]
     };
 
     const info = await transporter.sendMail(mailOptions);

@@ -14,18 +14,34 @@ const { sendCertificateEmail } = require('../utils/email');
 const router = express.Router();
 
 // Helper function to generate certificate PDF
-const generateCertificatePDF = async (certificate, user, internship, mentor) => {
+const generateCertificatePDF = async (certificate, user, internship, mentor, enrollment) => {
   const certId = certificate.certId;
-  const issuedDate = new Date(certificate.issuedAt).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
+  /* DATE OF ISSUE */
+  const issuedDate = new Date(certificate.issuedAt).toLocaleDateString(); // Default matches frontend's default
 
   const verificationUrl = `${process.env.FRONTEND_URL}/certificates/verify/${certId}`;
-  
+
   // Generate QR code
   const qrCodeDataUrl = await QRCode.toDataURL(verificationUrl);
+
+  // Load template image
+  const templatePath = path.join(__dirname, '../../frontend/public/certificates/internship-template.png');
+  let templateBase64 = '';
+  try {
+    const templateBuffer = await fs.readFile(templatePath);
+    templateBase64 = `data:image/png;base64,${templateBuffer.toString('base64')}`;
+  } catch (err) {
+    console.error('Error loading certificate template:', err);
+    // Fallback or error handling? For now, we proceed (image won't load)
+  }
+
+  // Calculate dates if available
+  let dateRangeText = '';
+  if (enrollment && enrollment.startDate && enrollment.endDate) {
+    const start = new Date(enrollment.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const end = new Date(enrollment.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    dateRangeText = `from <strong>${start}</strong> to <strong>${end}</strong>`;
+  }
 
   const html = `
     <!DOCTYPE html>
@@ -33,127 +49,148 @@ const generateCertificatePDF = async (certificate, user, internship, mentor) => 
     <head>
       <meta charset="UTF-8">
       <style>
+        /* ... styles identical to previous step ... */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Glacial+Indifference&display=swap');
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-          font-family: 'Times New Roman', serif;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          padding: 40px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
+          margin: 0;
+          padding: 0;
+          width: 1123px;
+          height: 794px;
+          font-family: 'Glacial Indifference', sans-serif;
         }
-        .certificate {
-          background: white;
-          width: 900px;
-          padding: 60px;
-          box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        .certificate-container {
           position: relative;
-          border: 20px solid #667eea;
+          width: 1123px;
+          height: 794px;
+          background: white;
+          overflow: hidden;
         }
-        .header {
+        .template-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
+        .content-layer {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
+        
+        /* STUDENT NAME */
+        .student-name {
+          position: absolute;
+          top: 290px;
+          left: 0;
+          width: 100%;
+          font-size: 68px;
+          font-family: 'Cormorant Garamond', serif;
+          font-weight: 600;
+          color: #d6b25e;
           text-align: center;
-          margin-bottom: 40px;
         }
-        .header h1 {
-          font-size: 48px;
-          color: #667eea;
-          margin-bottom: 10px;
-          text-transform: uppercase;
-          letter-spacing: 3px;
-        }
-        .header p {
-          font-size: 18px;
-          color: #666;
-        }
-        .certificate-body {
-          text-align: center;
-          margin: 40px 0;
-        }
-        .certificate-body p {
+
+        /* COURSE DETAILS */
+        .course-details {
+          position: absolute;
+          top: 434px;
+          left: 117px;
+          width: 856px;
           font-size: 20px;
-          line-height: 1.8;
-          margin: 15px 0;
-        }
-        .recipient-name {
-          font-size: 36px;
-          font-weight: bold;
-          color: #333;
-          margin: 20px 0;
-          text-decoration: underline;
-          text-decoration-color: #667eea;
-        }
-        .internship-title {
-          font-size: 28px;
-          font-style: italic;
-          color: #667eea;
-          margin: 20px 0;
-        }
-        .details {
-          margin-top: 50px;
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-        }
-        .signature {
+          font-family: 'Glacial Indifference', sans-serif;
+          color: #1e3a5f;
           text-align: center;
+          line-height: 1.5;
         }
-        .signature p {
-          margin: 5px 0;
-          font-size: 16px;
-        }
-        .signature-name {
-          font-weight: bold;
-          margin-top: 30px;
-        }
-        .verification {
-          text-align: center;
-          margin-top: 30px;
-          padding-top: 20px;
-          border-top: 2px solid #eee;
-        }
-        .verification p {
-          font-size: 12px;
-          color: #666;
-        }
+
+        /* CERTIFICATE ID */
         .cert-id {
-          font-weight: bold;
-          color: #667eea;
+          position: absolute;
+          bottom: 70px;
+          left: 470px;
+          width: auto;
+          font-size: 12px;
+          font-family: 'Glacial Indifference', sans-serif;
+          color: #1e3a5f;
+          text-align: center;
         }
+
+        /* VERIFICATION LINK */
+        .verification-link {
+          display: none; 
+        }
+
+        /* QR CODE */
         .qr-code {
-          margin-top: 20px;
+          position: absolute;
+          bottom: 110px;
+          left: 520px;
+          background: white;
+          padding: 4px;
+          border-radius: 4px;
+        }
+
+        /* DATE OF ISSUE */
+        .issue-date {
+          position: absolute;
+          bottom: 80px;
+          right: 165px;
+          font-size: 12px;
+          font-family: 'Glacial Indifference', sans-serif;
+          color: #1e3a5f;
+          text-align: center;
+        }
+
+        strong {
+          font-weight: bold;
         }
       </style>
     </head>
     <body>
-      <div class="certificate">
-        <div class="header">
-          <h1>Certificate of Completion</h1>
-          <p>This is to certify that</p>
-        </div>
-        <div class="certificate-body">
-          <div class="recipient-name">${user.name}</div>
-          <p>has successfully completed the internship program</p>
-          <div class="internship-title">${internship.title}</div>
-          <p>offered by <strong>${mentor.name}</strong></p>
-          <p>on ${issuedDate}</p>
-        </div>
-        <div class="details">
-          <div class="signature">
-            <p>Certificate ID: <span class="cert-id">${certId}</span></p>
-            <div class="qr-code">
-              <img src="${qrCodeDataUrl}" alt="QR Code" style="width: 100px; height: 100px;" />
-            </div>
+      <div class="certificate-container">
+        <!-- Template Background -->
+        <img src="${templateBase64}" class="template-bg" alt="Template" />
+
+        <div class="content-layer">
+          <!-- Name -->
+          <div class="student-name">${certificate.studentName || user.name}</div>
+
+          <!-- Description -->
+          <div class="course-details">
+            In Recognition of The Successful Completion of The Internship,
+            In 
+            <strong>${internship.title.toUpperCase()}</strong>,Utilizing SkillsBuild resources and the IBM Cloud Platform,  ${dateRangeText}.
+            <br />
+            This Program was Conducted by <strong>Certify-Now</strong> In
+            Collaboration With The <strong>AICTE</strong>.
           </div>
-          <div class="signature">
-            <p>_______________________</p>
-            <p class="signature-name">${mentor.name}</p>
-            <p>Mentor</p>
+
+          <!-- QR Code -->
+          <div class="qr-code">
+            <img src="${qrCodeDataUrl}" width="80" height="80" />
           </div>
-        </div>
-        <div class="verification">
-          <p>Verify this certificate at: ${verificationUrl}</p>
-          <p>Certificate Signature: ${certificate.signature.substring(0, 16)}...</p>
+
+          <!-- Certificate ID -->
+          <div class="cert-id">
+            Certificate-ID : ${certId}
+          </div>
+
+          <!-- Verification Link -->
+          <div class="verification-link">
+            Verification-link : ${verificationUrl}
+          </div>
+
+          <!-- Issue Date -->
+          <div class="issue-date">
+            ${issuedDate}
+          </div>
         </div>
       </div>
     </body>
@@ -162,17 +199,22 @@ const generateCertificatePDF = async (certificate, user, internship, mentor) => 
 
   // Generate PDF using Puppeteer
   const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
   });
 
   const page = await browser.newPage();
+
+  // Set viewport to match certificate dimensions
+  await page.setViewport({ width: 1123, height: 794 });
+
   await page.setContent(html, { waitUntil: 'networkidle0' });
-  
+
   const pdfBuffer = await page.pdf({
-    format: 'A4',
+    width: '1123px',
+    height: '794px',
     printBackground: true,
-    margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' }
+    pageRanges: '1'
   });
 
   await browser.close();
@@ -180,7 +222,7 @@ const generateCertificatePDF = async (certificate, user, internship, mentor) => 
   // Save PDF to filesystem (or upload to cloud storage)
   const uploadsDir = path.join(__dirname, '../uploads/certificates');
   await fs.mkdir(uploadsDir, { recursive: true });
-  
+
   const fileName = `cert_${certId}.pdf`;
   const filePath = path.join(uploadsDir, fileName);
   await fs.writeFile(filePath, pdfBuffer);
@@ -195,10 +237,10 @@ const generateCertificatePDF = async (certificate, user, internship, mentor) => 
 // @access  Private (Mentor/Admin)
 router.post('/generate',
   protect,
-  authorize('mentor', 'admin'),
+  authorize('mentor', 'admin', 'student'),
   async (req, res) => {
     try {
-      const { enrollmentId } = req.body;
+      const { enrollmentId, studentName } = req.body;
 
       if (!enrollmentId) {
         return res.status(400).json({ error: 'Enrollment ID is required' });
@@ -213,9 +255,9 @@ router.post('/generate',
         return res.status(404).json({ error: 'Enrollment not found' });
       }
 
-      // Check if enrollment is completed
-      if (enrollment.status !== 'completed') {
-        return res.status(400).json({ error: 'Enrollment is not completed yet' });
+      // Check if enrollment is completed or active (paid)
+      if (enrollment.status !== 'completed' && enrollment.status !== 'active') {
+        return res.status(400).json({ error: 'Enrollment is not eligible for certificate' });
       }
 
       // Check if certificate already exists
@@ -227,7 +269,12 @@ router.post('/generate',
       }
 
       // Authorization check
-      if (req.user.role === 'mentor') {
+      if (req.user.role === 'student') {
+        // Check if enrollment belongs to student
+        if (enrollment.userId._id.toString() !== req.user._id.toString()) {
+          return res.status(403).json({ error: 'Not authorized to generate certificate for this enrollment' });
+        }
+      } else if (req.user.role === 'mentor') {
         if (enrollment.internshipId.mentorId.toString() !== req.user._id.toString()) {
           return res.status(403).json({ error: 'Not authorized' });
         }
@@ -251,7 +298,8 @@ router.post('/generate',
         internshipId: enrollment.internshipId._id,
         enrollmentId: enrollment._id,
         signature,
-        pdfUrl: '' // Will be updated after PDF generation
+        studentName: studentName || enrollment.userId.name, // Use provided name or fallback
+        pdfUrl: 'PENDING_GENERATION' // Placeholder to satisfy validation
       });
 
       // Generate PDF
@@ -259,7 +307,8 @@ router.post('/generate',
         certificate,
         enrollment.userId,
         enrollment.internshipId,
-        mentor
+        mentor,
+        enrollment
       );
 
       // Update certificate with PDF URL
@@ -268,6 +317,13 @@ router.post('/generate',
 
       // Update enrollment with certificate ID
       enrollment.certificateId = certificate._id;
+
+      // Ensure status is completed
+      if (enrollment.status === 'active') {
+        enrollment.status = 'completed';
+        enrollment.progress = { ...enrollment.progress, percentage: 100 };
+      }
+
       await enrollment.save();
 
       // Send email notification
@@ -285,7 +341,10 @@ router.post('/generate',
       });
     } catch (error) {
       console.error('Error generating certificate:', error);
-      res.status(500).json({ error: 'Server error' });
+      try {
+        require('fs').appendFileSync('backend_error.log', new Date().toISOString() + ' - ' + error.stack + '\n\n');
+      } catch (e) { console.error('Could not write to error log', e); }
+      res.status(500).json({ error: 'Server error: ' + error.message });
     }
   }
 );
@@ -298,21 +357,35 @@ router.get('/:certId', async (req, res) => {
     const certificate = await Certificate.findOne({ certId: req.params.certId })
       .populate('userId', 'name email')
       .populate('internshipId', 'title description mentorId')
-      .populate('internshipId.mentorId', 'name');
+      .populate({
+        path: 'internshipId',
+        populate: { path: 'mentorId', select: 'name' }
+      })
+      .populate('enrollmentId', 'startDate endDate');
 
     if (!certificate) {
       return res.status(404).json({ error: 'Certificate not found' });
+    }
+
+    let startDate = null;
+    let endDate = null;
+
+    if (certificate.enrollmentId) {
+      startDate = certificate.enrollmentId.startDate;
+      endDate = certificate.enrollmentId.endDate;
     }
 
     res.json({
       success: true,
       data: {
         certId: certificate.certId,
-        userName: certificate.userId.name,
+        userName: certificate.studentName || certificate.userId.name, // Use stored studentName
         internshipTitle: certificate.internshipId.title,
         mentorName: certificate.internshipId.mentorId.name,
         issuedAt: certificate.issuedAt,
-        revoked: certificate.revoked
+        revoked: certificate.revoked,
+        startDate: startDate ? new Date(startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : null,
+        endDate: endDate ? new Date(endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : null
       }
     });
   } catch (error) {
@@ -327,7 +400,7 @@ router.get('/:certId', async (req, res) => {
 router.get('/verify', async (req, res) => {
   try {
     const { id } = req.query;
-    
+
     if (!id) {
       return res.status(400).json({
         valid: false,
@@ -486,7 +559,7 @@ router.get('/download/:certId', async (req, res) => {
 
     // Serve PDF file
     const filePath = path.join(__dirname, '../uploads/certificates', `cert_${certificate.certId}.pdf`);
-    
+
     try {
       await fs.access(filePath);
       res.sendFile(filePath);

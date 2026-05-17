@@ -43,7 +43,7 @@ router.post('/razorpay', express.raw({ type: 'application/json' }), async (req, 
     // Handle different event types
     if (event.event === 'payment.captured') {
       const payment = event.payload.payment.entity;
-      
+
       // Find enrollment by order ID
       const enrollment = await Enrollment.findOne({
         'payment.razorpayOrderId': payment.order_id
@@ -53,7 +53,8 @@ router.post('/razorpay', express.raw({ type: 'application/json' }), async (req, 
         enrollment.payment.razorpayPaymentId = payment.id;
         enrollment.payment.status = 'captured';
         enrollment.payment.capturedAt = new Date();
-        enrollment.status = 'active';
+        enrollment.status = 'completed'; // Directly complete enrollment
+        enrollment.progress = { percentage: 100, tasksCompleted: 0, totalTasks: 0 }; // Set progress to 100%
         enrollment.joinedAt = new Date();
         await enrollment.save();
 
@@ -64,7 +65,7 @@ router.post('/razorpay', express.raw({ type: 'application/json' }), async (req, 
       }
     } else if (event.event === 'payment.failed') {
       const payment = event.payload.payment.entity;
-      
+
       const enrollment = await Enrollment.findOne({
         'payment.razorpayOrderId': payment.order_id
       });

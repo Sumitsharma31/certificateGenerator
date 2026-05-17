@@ -48,6 +48,15 @@ const enrollmentSchema = new mongoose.Schema({
     ref: 'Certificate',
     default: null
   },
+  // Scheduled/Selected Duration
+  startDate: {
+    type: Date,
+    default: null
+  },
+  endDate: {
+    type: Date,
+    default: null
+  },
   joinedAt: {
     type: Date,
     default: Date.now

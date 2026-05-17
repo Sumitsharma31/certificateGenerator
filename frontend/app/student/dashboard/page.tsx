@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import api from '@/lib/api'
 import Navbar from '@/components/Navbar'
@@ -54,15 +55,6 @@ const StatusBadge = ({ status }: { status: string }) => {
     </span>
   )
 }
-
-const ProgressBar = ({ percentage }: { percentage: number }) => (
-  <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-    <div
-      className="bg-blue-600 h-full rounded-full transition-all duration-500 ease-out"
-      style={{ width: `${percentage}%` }}
-    />
-  </div>
-)
 
 // Reusable Image Component with Fallback Logic
 const InternshipImage = ({ src, title, className }: { src?: string, title: string, className?: string }) => {
@@ -141,19 +133,37 @@ const DashboardInternshipCard = ({ internship }: { internship: Internship }) => 
 }
 
 export default function StudentDashboard() {
-  const { user } = useAuth()
+  const { user, loading: authLoading } = useAuth()
+  const router = useRouter()
   const [internships, setInternships] = useState<Internship[]>([])
   const [enrollments, setEnrollments] = useState<Enrollment[]>([])
   const [loading, setLoading] = useState(true)
 
+  // Certificate Name Confirmation State
+  const [showNameModal, setShowNameModal] = useState(false)
+  const [tempName, setTempName] = useState('')
+  const [selectedEnrollmentId, setSelectedEnrollmentId] = useState<string | null>(null)
+
+  // Auth guard — redirect unauthenticated or wrong-role users
   useEffect(() => {
-    fetchData()
-  }, [])
+    if (authLoading) return
+    if (!user) {
+      router.replace('/auth/login')
+    } else if (user.role !== 'student') {
+      router.replace('/')
+    }
+  }, [user, authLoading, router])
+
+  useEffect(() => {
+    if (!authLoading && user?.role === 'student') {
+      fetchData()
+    }
+  }, [authLoading, user])
 
   const fetchData = async () => {
     try {
       const [internshipsRes, enrollmentsRes] = await Promise.all([
-        api.get('/internships?status=published&limit=3'), // Limit recommendations to 3
+        api.get('/internships?status=published&limit=10'), // Fetch more to allow for filtering enrolled ones
         api.get('/enrollments'),
       ])
 
@@ -166,6 +176,37 @@ export default function StudentDashboard() {
       setLoading(false)
     }
   }
+
+
+  const handleGenerateCertificate = (enrollmentId: string) => {
+    setSelectedEnrollmentId(enrollmentId);
+    setTempName(user?.name || '');
+    setShowNameModal(true);
+  };
+
+  const proceedWithGeneration = async () => {
+    if (!selectedEnrollmentId) return;
+
+    let toastId;
+    try {
+      setShowNameModal(false);
+      toastId = toast.loading('Generating certificate...');
+
+      const response = await api.post('/certificates/generate', {
+        enrollmentId: selectedEnrollmentId,
+        studentName: tempName
+      });
+
+      if (response.data.success) {
+        toast.success('Certificate generated successfully! Check your mail for the certificate.', { id: toastId });
+        fetchData(); // Refresh data to show View Certificate button
+      }
+    } catch (error: any) {
+      console.error('Certificate generation error:', error);
+      toast.dismiss(toastId);
+      toast.error(error.response?.data?.error || 'Failed to generate certificate');
+    }
+  };
 
   // Filter valid enrollments
   const activeEnrollments = enrollments.filter(enrollment =>
@@ -238,9 +279,12 @@ export default function StudentDashboard() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {internships.map((internship) => (
-              <DashboardInternshipCard key={internship._id} internship={internship} />
-            ))}
+            {internships
+              .filter(internship => !enrollments.some(e => e.internshipId?._id === internship._id && (e.status === 'active' || e.status === 'completed')))
+              .slice(0, 3)
+              .map((internship) => (
+                <DashboardInternshipCard key={internship._id} internship={internship} />
+              ))}
           </div>
         </section>
         {/* --- My Enrollments Section --- */}
@@ -276,50 +320,49 @@ export default function StudentDashboard() {
                 return (
                   <div
                     key={enrollment._id}
-                    className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col"
+                    className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden h-full"
                   >
-                    <div className="flex gap-4 p-5">
-                      {/* Small Thumbnail for Enrollment */}
-                      <div className="w-16 h-16 rounded-lg overflow-hidden shrink-0">
-                        <InternshipImage src={enrollment.internshipId.image} title={enrollment.internshipId.title} />
-                      </div>
-
-                      <div className="flex-1 min-w-0">
-                        <div className="flex justify-between items-start mb-1">
-                          <h3 className="text-base font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
-                            {enrollment.internshipId.title}
-                          </h3>
-                        </div>
-                        <div className="mb-3">
-                          <StatusBadge status={enrollment.status} />
-                        </div>
+                    <div className="h-40 relative bg-slate-100 overflow-hidden">
+                      <InternshipImage src={enrollment.internshipId.image} title={enrollment.internshipId.title} className="group-hover:scale-105 transition-transform duration-500" />
+                      <div className="absolute top-3 right-3">
+                        <StatusBadge status={enrollment.status} />
                       </div>
                     </div>
 
-                    <div className="px-5 pb-5">
-                      <div className="flex justify-between text-xs font-medium text-slate-500 mb-1.5">
-                        <span>Progress</span>
-                        <span className="text-blue-600">{enrollment.progress?.percentage || 0}%</span>
+                    <div className="p-5 flex-1 flex flex-col">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-slate-900 mb-2 truncate group-hover:text-blue-600 transition-colors">
+                          {enrollment.internshipId.title}
+                        </h3>
+                        {/* Skills Tags */}
+                        {enrollment.internshipId.skills && enrollment.internshipId.skills.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5 mb-4">
+                            {enrollment.internshipId.skills.slice(0, 3).map((skill, index) => (
+                              <span key={index} className="px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-200 text-[10px] font-medium rounded">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
-                      <ProgressBar percentage={enrollment.progress?.percentage || 0} />
-                    </div>
 
-                    <div className="bg-slate-50 px-5 py-3 border-t border-slate-100 mt-auto">
-                      {enrollment.certificateId ? (
-                        <Link
-                          href={`/certificates/${enrollment.certificateId.certId}`}
-                          className="w-full flex items-center justify-center gap-2 text-emerald-600 text-sm font-medium hover:underline"
-                        >
-                          <Award className="w-4 h-4" /> View Certificate
-                        </Link>
-                      ) : (
-                        <Link
-                          href={`/student/learn/${enrollment.internshipId._id}`}
-                          className="w-full flex items-center justify-between text-blue-600 text-sm font-medium group/link"
-                        >
-                          Continue Learning <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                        </Link>
-                      )}
+                      <div className="grid grid-cols-1 gap-2 mt-auto pt-3 border-t border-slate-100">
+                        {enrollment.certificateId ? (
+                          <Link
+                            href={`/certificates/${enrollment.certificateId.certId}`}
+                            className="w-full flex items-center justify-center gap-2 bg-emerald-50 text-emerald-600 hover:bg-emerald-100 py-2 rounded-xl text-sm font-bold transition-colors"
+                          >
+                            <Award className="w-4 h-4" /> View Certificate
+                          </Link>
+                        ) : (
+                          <button
+                            onClick={() => handleGenerateCertificate(enrollment._id)}
+                            className="w-full flex items-center justify-center gap-2 bg-blue-50 text-blue-600 hover:bg-blue-100 py-2 rounded-xl text-sm font-bold transition-colors"
+                          >
+                            <Sparkles className="w-4 h-4" /> Generate Certificate
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 )
@@ -328,6 +371,49 @@ export default function StudentDashboard() {
           )}
         </section>
       </div>
+
+      {/* CONFIRM NAME MODAL */}
+      {showNameModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">
+              Confirm Name for Certificate
+            </h3>
+            <p className="text-sm text-slate-500 mb-6">
+              This name will be permanently displayed on your certificate. Please ensure it is correct and matches your official documents.
+            </p>
+
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Full Name
+              </label>
+              <input
+                type="text"
+                value={tempName}
+                onChange={(e) => setTempName(e.target.value)}
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setShowNameModal(false)}
+                className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={proceedWithGeneration}
+                disabled={!tempName.trim()}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Generate Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

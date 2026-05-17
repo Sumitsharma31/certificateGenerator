@@ -48,7 +48,7 @@ export default function Navbar() {
               <div className="p-2 rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform">
                 <Rocket size={20} strokeWidth={2.5} />
               </div>
-              <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
+              <span className={`font-bold text-xl tracking-tight text-slate-900 ${scrolled ? 'dark:text-white' : ''}`}>
                 Certify<span className="text-blue-600">Now</span>
               </span>
             </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
                     href={item.path}
                     className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${isActive
                       ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400' // Active
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800' // Inactive
+                      : `text-gray-600 hover:text-blue-600 hover:bg-gray-50 ${scrolled ? 'dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-gray-800' : ''}` // Inactive
                       }`}
                   >
                     {item.name}
@@ -127,7 +127,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <div className="flex items-center gap-3">
-                  <Link href="/auth/login" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Log in</Link>
+                  <Link href="/auth/login" className={`text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors ${scrolled ? 'dark:text-gray-300 dark:hover:text-blue-400' : ''}`}>Log in</Link>
                   <Link href="/auth/login" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-full shadow-lg shadow-blue-200 transition-all hover:scale-105">Sign Up</Link>
                 </div>
               )}

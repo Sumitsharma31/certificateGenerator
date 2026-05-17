@@ -15,14 +15,14 @@ router.use(protect);
 router.get('/', async (req, res) => {
   try {
     const query = { userId: req.user._id };
-    
+
     // Filter by status if provided
     if (req.query.status) {
       query.status = req.query.status;
     }
 
     const enrollments = await Enrollment.find(query)
-      .populate('internshipId', 'title description priceInINR mentorId startDate endDate')
+      .populate('internshipId', 'title description priceInINR mentorId startDate endDate image skills level')
       .populate('certificateId', 'certId issuedAt')
       .sort('-createdAt');
 
@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
 
     // Check if user owns this enrollment or is mentor/admin
     if (enrollment.userId._id.toString() !== req.user._id.toString() &&
-        req.user.role !== 'mentor' && req.user.role !== 'admin') {
+      req.user.role !== 'mentor' && req.user.role !== 'admin') {
       return res.status(403).json({ error: 'Not authorized' });
     }
 

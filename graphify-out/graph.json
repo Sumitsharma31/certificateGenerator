@@ -1,0 +1,1795 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "postcss.config.mjs",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\postcss.config.mjs",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_postcss_config_mjs",
+      "community": 23,
+      "norm_label": "postcss.config.mjs"
+    },
+    {
+      "label": "test-backend.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\test-backend.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_test_backend_js",
+      "community": 24,
+      "norm_label": "test-backend.js"
+    },
+    {
+      "label": "check-env.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\check-env.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_check_env_js",
+      "community": 25,
+      "norm_label": "check-env.js"
+    },
+    {
+      "label": "jest.config.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\jest.config.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_jest_config_js",
+      "community": 26,
+      "norm_label": "jest.config.js"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\server.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_server_js",
+      "community": 27,
+      "norm_label": "server.js"
+    },
+    {
+      "label": "setup-email.ps1",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\setup-email.ps1",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_setup_email_ps1",
+      "community": 28,
+      "norm_label": "setup-email.ps1"
+    },
+    {
+      "label": "updateName.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\updateName.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_updatename_js",
+      "community": 12,
+      "norm_label": "updatename.js"
+    },
+    {
+      "label": "updateName()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\updateName.js",
+      "source_location": "L6",
+      "id": "updatename_updatename",
+      "community": 12,
+      "norm_label": "updatename()"
+    },
+    {
+      "label": "database.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\config\\database.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_config_database_js",
+      "community": 1,
+      "norm_label": "database.js"
+    },
+    {
+      "label": "connectDB()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\config\\database.js",
+      "source_location": "L3",
+      "id": "database_connectdb",
+      "community": 1,
+      "norm_label": "connectdb()"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\auth.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_auth_js",
+      "community": 3,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "protect()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\auth.js",
+      "source_location": "L5",
+      "id": "auth_protect",
+      "community": 3,
+      "norm_label": "protect()"
+    },
+    {
+      "label": "authorize()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\auth.js",
+      "source_location": "L31",
+      "id": "auth_authorize",
+      "community": 3,
+      "norm_label": "authorize()"
+    },
+    {
+      "label": "errorHandler.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\errorHandler.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_errorhandler_js",
+      "community": 13,
+      "norm_label": "errorhandler.js"
+    },
+    {
+      "label": "errorHandler()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\errorHandler.js",
+      "source_location": "L1",
+      "id": "errorhandler_errorhandler",
+      "community": 13,
+      "norm_label": "errorhandler()"
+    },
+    {
+      "label": "rateLimiter.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\rateLimiter.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_ratelimiter_js",
+      "community": 29,
+      "norm_label": "ratelimiter.js"
+    },
+    {
+      "label": "upload.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\upload.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_upload_js",
+      "community": 14,
+      "norm_label": "upload.js"
+    },
+    {
+      "label": "fileFilter()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\upload.js",
+      "source_location": "L23",
+      "id": "upload_filefilter",
+      "community": 14,
+      "norm_label": "filefilter()"
+    },
+    {
+      "label": "Certificate.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\models\\Certificate.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_models_certificate_js",
+      "community": 30,
+      "norm_label": "certificate.js"
+    },
+    {
+      "label": "Enrollment.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\models\\Enrollment.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_models_enrollment_js",
+      "community": 31,
+      "norm_label": "enrollment.js"
+    },
+    {
+      "label": "Internship.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\models\\Internship.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_models_internship_js",
+      "community": 32,
+      "norm_label": "internship.js"
+    },
+    {
+      "label": "Payment.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\models\\Payment.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_models_payment_js",
+      "community": 33,
+      "norm_label": "payment.js"
+    },
+    {
+      "label": "PaymentWebhookLog.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\models\\PaymentWebhookLog.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_models_paymentwebhooklog_js",
+      "community": 34,
+      "norm_label": "paymentwebhooklog.js"
+    },
+    {
+      "label": "User.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\models\\User.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_models_user_js",
+      "community": 35,
+      "norm_label": "user.js"
+    },
+    {
+      "label": "admin.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\admin.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_admin_js",
+      "community": 15,
+      "norm_label": "admin.js"
+    },
+    {
+      "label": "generateCertificatePDF()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\admin.js",
+      "source_location": "L662",
+      "id": "admin_generatecertificatepdf",
+      "community": 15,
+      "norm_label": "generatecertificatepdf()"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\auth.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_auth_js",
+      "community": 36,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "certificates.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\certificates.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_certificates_js",
+      "community": 16,
+      "norm_label": "certificates.js"
+    },
+    {
+      "label": "generateCertificatePDF()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\certificates.js",
+      "source_location": "L17",
+      "id": "certificates_generatecertificatepdf",
+      "community": 16,
+      "norm_label": "generatecertificatepdf()"
+    },
+    {
+      "label": "enrollments.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\enrollments.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_enrollments_js",
+      "community": 37,
+      "norm_label": "enrollments.js"
+    },
+    {
+      "label": "internships.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\internships.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_internships_js",
+      "community": 38,
+      "norm_label": "internships.js"
+    },
+    {
+      "label": "learning.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\learning.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_learning_js",
+      "community": 39,
+      "norm_label": "learning.js"
+    },
+    {
+      "label": "payments.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\payments.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_payments_js",
+      "community": 40,
+      "norm_label": "payments.js"
+    },
+    {
+      "label": "upload.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\upload.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_upload_js",
+      "community": 41,
+      "norm_label": "upload.js"
+    },
+    {
+      "label": "users.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\users.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_users_js",
+      "community": 42,
+      "norm_label": "users.js"
+    },
+    {
+      "label": "webhooks.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\webhooks.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_webhooks_js",
+      "community": 43,
+      "norm_label": "webhooks.js"
+    },
+    {
+      "label": "create-admin.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\create-admin.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_scripts_create_admin_js",
+      "community": 1,
+      "norm_label": "create-admin.js"
+    },
+    {
+      "label": "createAdmin()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\create-admin.js",
+      "source_location": "L20",
+      "id": "create_admin_createadmin",
+      "community": 1,
+      "norm_label": "createadmin()"
+    },
+    {
+      "label": "setup-admin.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\setup-admin.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_scripts_setup_admin_js",
+      "community": 1,
+      "norm_label": "setup-admin.js"
+    },
+    {
+      "label": "setupAdmin()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\setup-admin.js",
+      "source_location": "L19",
+      "id": "setup_admin_setupadmin",
+      "community": 1,
+      "norm_label": "setupadmin()"
+    },
+    {
+      "label": "auth.test.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\tests\\auth.test.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_tests_auth_test_js",
+      "community": 44,
+      "norm_label": "auth.test.js"
+    },
+    {
+      "label": "certificate.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_certificate_js",
+      "community": 4,
+      "norm_label": "certificate.js"
+    },
+    {
+      "label": "generateCertId()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L5",
+      "id": "certificate_generatecertid",
+      "community": 4,
+      "norm_label": "generatecertid()"
+    },
+    {
+      "label": "generateSignature()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L15",
+      "id": "certificate_generatesignature",
+      "community": 4,
+      "norm_label": "generatesignature()"
+    },
+    {
+      "label": "verifySignature()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L24",
+      "id": "certificate_verifysignature",
+      "community": 4,
+      "norm_label": "verifysignature()"
+    },
+    {
+      "label": "email.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_email_js",
+      "community": 5,
+      "norm_label": "email.js"
+    },
+    {
+      "label": "createTransporter()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L4",
+      "id": "email_createtransporter",
+      "community": 5,
+      "norm_label": "createtransporter()"
+    },
+    {
+      "label": "sendOTPEmail()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L22",
+      "id": "email_sendotpemail",
+      "community": 5,
+      "norm_label": "sendotpemail()"
+    },
+    {
+      "label": "sendCertificateEmail()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L85",
+      "id": "email_sendcertificateemail",
+      "community": 5,
+      "norm_label": "sendcertificateemail()"
+    },
+    {
+      "label": "generateOTP.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\generateOTP.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_generateotp_js",
+      "community": 17,
+      "norm_label": "generateotp.js"
+    },
+    {
+      "label": "generateOTP()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\generateOTP.js",
+      "source_location": "L2",
+      "id": "generateotp_generateotp",
+      "community": 17,
+      "norm_label": "generateotp()"
+    },
+    {
+      "label": "razorpay.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\razorpay.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_razorpay_js",
+      "community": 6,
+      "norm_label": "razorpay.js"
+    },
+    {
+      "label": "createOrder()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\razorpay.js",
+      "source_location": "L11",
+      "id": "razorpay_createorder",
+      "community": 6,
+      "norm_label": "createorder()"
+    },
+    {
+      "label": "verifyPayment()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\razorpay.js",
+      "source_location": "L29",
+      "id": "razorpay_verifypayment",
+      "community": 6,
+      "norm_label": "verifypayment()"
+    },
+    {
+      "label": "verifyWebhookSignature()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\razorpay.js",
+      "source_location": "L46",
+      "id": "razorpay_verifywebhooksignature",
+      "community": 6,
+      "norm_label": "verifywebhooksignature()"
+    },
+    {
+      "label": "next-env.d.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\next-env.d.ts",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_next_env_d_ts",
+      "community": 45,
+      "norm_label": "next-env.d.ts"
+    },
+    {
+      "label": "next.config.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\next.config.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_next_config_js",
+      "community": 46,
+      "norm_label": "next.config.js"
+    },
+    {
+      "label": "postcss.config.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\postcss.config.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_postcss_config_js",
+      "community": 47,
+      "norm_label": "postcss.config.js"
+    },
+    {
+      "label": "tailwind.config.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\tailwind.config.js",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_tailwind_config_js",
+      "community": 48,
+      "norm_label": "tailwind.config.js"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\layout.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_layout_tsx",
+      "community": 18,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\layout.tsx",
+      "source_location": "L35",
+      "id": "layout_rootlayout",
+      "community": 18,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_page_tsx",
+      "community": 49,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Card()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L74",
+      "id": "page_card",
+      "community": 0,
+      "norm_label": "card()"
+    },
+    {
+      "label": "Select()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L122",
+      "id": "page_select",
+      "community": 3,
+      "norm_label": "select()"
+    },
+    {
+      "label": "fetchDashboard()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L219",
+      "id": "page_fetchdashboard",
+      "community": 0,
+      "norm_label": "fetchdashboard()"
+    },
+    {
+      "label": "fetchInternships()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\mentor\\dashboard\\page.tsx",
+      "source_location": "L28",
+      "id": "page_fetchinternships",
+      "community": 0,
+      "norm_label": "fetchinternships()"
+    },
+    {
+      "label": "fetchStudents()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L237",
+      "id": "page_fetchstudents",
+      "community": 0,
+      "norm_label": "fetchstudents()"
+    },
+    {
+      "label": "fetchEnrollments()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L245",
+      "id": "page_fetchenrollments",
+      "community": 0,
+      "norm_label": "fetchenrollments()"
+    },
+    {
+      "label": "fetchPayments()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L253",
+      "id": "page_fetchpayments",
+      "community": 0,
+      "norm_label": "fetchpayments()"
+    },
+    {
+      "label": "handleCreateInternship()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L263",
+      "id": "page_handlecreateinternship",
+      "community": 0,
+      "norm_label": "handlecreateinternship()"
+    },
+    {
+      "label": "handleDeleteInternship()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L281",
+      "id": "page_handledeleteinternship",
+      "community": 0,
+      "norm_label": "handledeleteinternship()"
+    },
+    {
+      "label": "resetInternshipForm()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L286",
+      "id": "page_resetinternshipform",
+      "community": 0,
+      "norm_label": "resetinternshipform()"
+    },
+    {
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L291",
+      "id": "page_formatdate",
+      "community": 0,
+      "norm_label": "formatdate()"
+    },
+    {
+      "label": "addModule()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L297",
+      "id": "page_addmodule",
+      "community": 0,
+      "norm_label": "addmodule()"
+    },
+    {
+      "label": "updateModule()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L304",
+      "id": "page_updatemodule",
+      "community": 0,
+      "norm_label": "updatemodule()"
+    },
+    {
+      "label": "removeModule()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L311",
+      "id": "page_removemodule",
+      "community": 0,
+      "norm_label": "removemodule()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\auth\\login\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_auth_login_page_tsx",
+      "community": 7,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "handleRequestOTP()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\auth\\login\\page.tsx",
+      "source_location": "L30",
+      "id": "page_handlerequestotp",
+      "community": 7,
+      "norm_label": "handlerequestotp()"
+    },
+    {
+      "label": "handleVerifyOTP()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\auth\\login\\page.tsx",
+      "source_location": "L45",
+      "id": "page_handleverifyotp",
+      "community": 7,
+      "norm_label": "handleverifyotp()"
+    },
+    {
+      "label": "handleUpdateProfile()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\auth\\login\\page.tsx",
+      "source_location": "L72",
+      "id": "page_handleupdateprofile",
+      "community": 7,
+      "norm_label": "handleupdateprofile()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\verify\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_verify_page_tsx",
+      "community": 19,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "handleVerify()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\verify\\page.tsx",
+      "source_location": "L14",
+      "id": "page_handleverify",
+      "community": 19,
+      "norm_label": "handleverify()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\[certId]\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_certid_page_tsx",
+      "community": 8,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "fetchCertificate()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\[certId]\\page.tsx",
+      "source_location": "L31",
+      "id": "page_fetchcertificate",
+      "community": 8,
+      "norm_label": "fetchcertificate()"
+    },
+    {
+      "label": "handleDownload()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\[certId]\\page.tsx",
+      "source_location": "L42",
+      "id": "page_handledownload",
+      "community": 8,
+      "norm_label": "handledownload()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\internships\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\internships\\[id]\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_id_page_tsx",
+      "community": 9,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "calculateEndDate()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\internships\\[id]\\page.tsx",
+      "source_location": "L125",
+      "id": "page_calculateenddate",
+      "community": 9,
+      "norm_label": "calculateenddate()"
+    },
+    {
+      "label": "Date()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\internships\\[id]\\page.tsx",
+      "source_location": "L154",
+      "id": "page_date",
+      "community": 9,
+      "norm_label": "date()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\mentor\\dashboard\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_mentor_dashboard_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "community": 2,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "StatusBadge()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L42",
+      "id": "page_statusbadge",
+      "community": 2,
+      "norm_label": "statusbadge()"
+    },
+    {
+      "label": "fetchData()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L149",
+      "id": "page_fetchdata",
+      "community": 2,
+      "norm_label": "fetchdata()"
+    },
+    {
+      "label": "handleGenerateCertificate()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L167",
+      "id": "page_handlegeneratecertificate",
+      "community": 2,
+      "norm_label": "handlegeneratecertificate()"
+    },
+    {
+      "label": "proceedWithGeneration()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L173",
+      "id": "page_proceedwithgeneration",
+      "community": 2,
+      "norm_label": "proceedwithgeneration()"
+    },
+    {
+      "label": "CanvaCertificate.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\CanvaCertificate.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_canvacertificate_tsx",
+      "community": 20,
+      "norm_label": "canvacertificate.tsx"
+    },
+    {
+      "label": "CanvaCertificate()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\CanvaCertificate.tsx",
+      "source_location": "L14",
+      "id": "canvacertificate_canvacertificate",
+      "community": 20,
+      "norm_label": "canvacertificate()"
+    },
+    {
+      "label": "InternshipCard.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\InternshipCard.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_internshipcard_tsx",
+      "community": 10,
+      "norm_label": "internshipcard.tsx"
+    },
+    {
+      "label": "Badge()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\InternshipCard.tsx",
+      "source_location": "L17",
+      "id": "internshipcard_badge",
+      "community": 10,
+      "norm_label": "badge()"
+    },
+    {
+      "label": "InternshipCard()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\InternshipCard.tsx",
+      "source_location": "L23",
+      "id": "internshipcard_internshipcard",
+      "community": 10,
+      "norm_label": "internshipcard()"
+    },
+    {
+      "label": "Navbar.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\Navbar.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_navbar_tsx",
+      "community": 21,
+      "norm_label": "navbar.tsx"
+    },
+    {
+      "label": "handleScroll()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\Navbar.tsx",
+      "source_location": "L26",
+      "id": "navbar_handlescroll",
+      "community": 21,
+      "norm_label": "handlescroll()"
+    },
+    {
+      "label": "AuthContext.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\contexts\\AuthContext.tsx",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_contexts_authcontext_tsx",
+      "community": 11,
+      "norm_label": "authcontext.tsx"
+    },
+    {
+      "label": "AuthProvider()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\contexts\\AuthContext.tsx",
+      "source_location": "L27",
+      "id": "authcontext_authprovider",
+      "community": 11,
+      "norm_label": "authprovider()"
+    },
+    {
+      "label": "useAuth()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\contexts\\AuthContext.tsx",
+      "source_location": "L104",
+      "id": "authcontext_useauth",
+      "community": 11,
+      "norm_label": "useauth()"
+    },
+    {
+      "label": "api.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\lib\\api.ts",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_lib_api_ts",
+      "community": 50,
+      "norm_label": "api.ts"
+    },
+    {
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\lib\\utils.ts",
+      "source_location": "L1",
+      "id": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_lib_utils_ts",
+      "community": 22,
+      "norm_label": "utils.ts"
+    },
+    {
+      "label": "cn()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\lib\\utils.ts",
+      "source_location": "L4",
+      "id": "utils_cn",
+      "community": 22,
+      "norm_label": "cn()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\updateName.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_updatename_js",
+      "_tgt": "updatename_updatename",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_updatename_js",
+      "target": "updatename_updatename",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\config\\database.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_config_database_js",
+      "_tgt": "database_connectdb",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_config_database_js",
+      "target": "database_connectdb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\create-admin.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "create_admin_createadmin",
+      "_tgt": "database_connectdb",
+      "source": "database_connectdb",
+      "target": "create_admin_createadmin"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\setup-admin.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "setup_admin_setupadmin",
+      "_tgt": "database_connectdb",
+      "source": "database_connectdb",
+      "target": "setup_admin_setupadmin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\auth.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_auth_js",
+      "_tgt": "auth_protect",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_auth_js",
+      "target": "auth_protect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\auth.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_auth_js",
+      "_tgt": "auth_authorize",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_auth_js",
+      "target": "auth_authorize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\auth.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "auth_protect",
+      "_tgt": "page_select",
+      "source": "auth_protect",
+      "target": "page_select"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\errorHandler.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_errorhandler_js",
+      "_tgt": "errorhandler_errorhandler",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_errorhandler_js",
+      "target": "errorhandler_errorhandler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\middleware\\upload.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_upload_js",
+      "_tgt": "upload_filefilter",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_middleware_upload_js",
+      "target": "upload_filefilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\admin.js",
+      "source_location": "L662",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_admin_js",
+      "_tgt": "admin_generatecertificatepdf",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_admin_js",
+      "target": "admin_generatecertificatepdf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\routes\\certificates.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_certificates_js",
+      "_tgt": "certificates_generatecertificatepdf",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_routes_certificates_js",
+      "target": "certificates_generatecertificatepdf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\create-admin.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_scripts_create_admin_js",
+      "_tgt": "create_admin_createadmin",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_scripts_create_admin_js",
+      "target": "create_admin_createadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\scripts\\setup-admin.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_scripts_setup_admin_js",
+      "_tgt": "setup_admin_setupadmin",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_scripts_setup_admin_js",
+      "target": "setup_admin_setupadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_certificate_js",
+      "_tgt": "certificate_generatecertid",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_certificate_js",
+      "target": "certificate_generatecertid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_certificate_js",
+      "_tgt": "certificate_generatesignature",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_certificate_js",
+      "target": "certificate_generatesignature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_certificate_js",
+      "_tgt": "certificate_verifysignature",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_certificate_js",
+      "target": "certificate_verifysignature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\certificate.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "certificate_verifysignature",
+      "_tgt": "certificate_generatesignature",
+      "source": "certificate_generatesignature",
+      "target": "certificate_verifysignature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_email_js",
+      "_tgt": "email_createtransporter",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_email_js",
+      "target": "email_createtransporter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_email_js",
+      "_tgt": "email_sendotpemail",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_email_js",
+      "target": "email_sendotpemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_email_js",
+      "_tgt": "email_sendcertificateemail",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_email_js",
+      "target": "email_sendcertificateemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_src": "email_sendotpemail",
+      "_tgt": "email_createtransporter",
+      "source": "email_createtransporter",
+      "target": "email_sendotpemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\email.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_src": "email_sendcertificateemail",
+      "_tgt": "email_createtransporter",
+      "source": "email_createtransporter",
+      "target": "email_sendcertificateemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\generateOTP.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_generateotp_js",
+      "_tgt": "generateotp_generateotp",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_generateotp_js",
+      "target": "generateotp_generateotp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\razorpay.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_razorpay_js",
+      "_tgt": "razorpay_createorder",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_razorpay_js",
+      "target": "razorpay_createorder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\razorpay.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_razorpay_js",
+      "_tgt": "razorpay_verifypayment",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_razorpay_js",
+      "target": "razorpay_verifypayment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\backend\\utils\\razorpay.js",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_razorpay_js",
+      "_tgt": "razorpay_verifywebhooksignature",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_backend_utils_razorpay_js",
+      "target": "razorpay_verifywebhooksignature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\layout.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_layout_tsx",
+      "_tgt": "layout_rootlayout",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_layout_tsx",
+      "target": "layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_card",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_select",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_select",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L219",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_fetchdashboard",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_fetchdashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_fetchinternships",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_fetchinternships",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L237",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_fetchstudents",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_fetchstudents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L245",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_fetchenrollments",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_fetchenrollments",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L253",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_fetchpayments",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_fetchpayments",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L263",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_handlecreateinternship",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_handlecreateinternship",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L281",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_handledeleteinternship",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_handledeleteinternship",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L286",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_resetinternshipform",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_resetinternshipform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L291",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_formatdate",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L297",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_addmodule",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_addmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L304",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_updatemodule",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_updatemodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L311",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "_tgt": "page_removemodule",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_admin_dashboard_page_tsx",
+      "target": "page_removemodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L277",
+      "weight": 1.0,
+      "_src": "page_handlecreateinternship",
+      "_tgt": "page_fetchdashboard",
+      "source": "page_fetchdashboard",
+      "target": "page_handlecreateinternship",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L277",
+      "weight": 1.0,
+      "_src": "page_handlecreateinternship",
+      "_tgt": "page_fetchinternships",
+      "source": "page_fetchinternships",
+      "target": "page_handlecreateinternship",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L283",
+      "weight": 1.0,
+      "_src": "page_handledeleteinternship",
+      "_tgt": "page_fetchinternships",
+      "source": "page_fetchinternships",
+      "target": "page_handledeleteinternship",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\internships\\page.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_page_tsx",
+      "_tgt": "page_fetchinternships",
+      "source": "page_fetchinternships",
+      "target": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_page_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\mentor\\dashboard\\page.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_mentor_dashboard_page_tsx",
+      "_tgt": "page_fetchinternships",
+      "source": "page_fetchinternships",
+      "target": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_mentor_dashboard_page_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\admin\\dashboard\\page.tsx",
+      "source_location": "L277",
+      "weight": 1.0,
+      "_src": "page_handlecreateinternship",
+      "_tgt": "page_resetinternshipform",
+      "source": "page_handlecreateinternship",
+      "target": "page_resetinternshipform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\auth\\login\\page.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_auth_login_page_tsx",
+      "_tgt": "page_handlerequestotp",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_auth_login_page_tsx",
+      "target": "page_handlerequestotp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\auth\\login\\page.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_auth_login_page_tsx",
+      "_tgt": "page_handleverifyotp",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_auth_login_page_tsx",
+      "target": "page_handleverifyotp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\auth\\login\\page.tsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_auth_login_page_tsx",
+      "_tgt": "page_handleupdateprofile",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_auth_login_page_tsx",
+      "target": "page_handleupdateprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\verify\\page.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_verify_page_tsx",
+      "_tgt": "page_handleverify",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_verify_page_tsx",
+      "target": "page_handleverify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\[certId]\\page.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_certid_page_tsx",
+      "_tgt": "page_fetchcertificate",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_certid_page_tsx",
+      "target": "page_fetchcertificate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\certificates\\[certId]\\page.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_certid_page_tsx",
+      "_tgt": "page_handledownload",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_certificates_certid_page_tsx",
+      "target": "page_handledownload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\internships\\[id]\\page.tsx",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_id_page_tsx",
+      "_tgt": "page_calculateenddate",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_id_page_tsx",
+      "target": "page_calculateenddate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\internships\\[id]\\page.tsx",
+      "source_location": "L154",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_id_page_tsx",
+      "_tgt": "page_date",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_internships_id_page_tsx",
+      "target": "page_date",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "_tgt": "page_statusbadge",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "target": "page_statusbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "_tgt": "page_fetchdata",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "target": "page_fetchdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L167",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "_tgt": "page_handlegeneratecertificate",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "target": "page_handlegeneratecertificate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L173",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "_tgt": "page_proceedwithgeneration",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_app_student_dashboard_page_tsx",
+      "target": "page_proceedwithgeneration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\app\\student\\dashboard\\page.tsx",
+      "source_location": "L188",
+      "weight": 1.0,
+      "_src": "page_proceedwithgeneration",
+      "_tgt": "page_fetchdata",
+      "source": "page_fetchdata",
+      "target": "page_proceedwithgeneration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\CanvaCertificate.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_canvacertificate_tsx",
+      "_tgt": "canvacertificate_canvacertificate",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_canvacertificate_tsx",
+      "target": "canvacertificate_canvacertificate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\InternshipCard.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_internshipcard_tsx",
+      "_tgt": "internshipcard_badge",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_internshipcard_tsx",
+      "target": "internshipcard_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\InternshipCard.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_internshipcard_tsx",
+      "_tgt": "internshipcard_internshipcard",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_internshipcard_tsx",
+      "target": "internshipcard_internshipcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\components\\Navbar.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_navbar_tsx",
+      "_tgt": "navbar_handlescroll",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_components_navbar_tsx",
+      "target": "navbar_handlescroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\contexts\\AuthContext.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_contexts_authcontext_tsx",
+      "_tgt": "authcontext_authprovider",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_contexts_authcontext_tsx",
+      "target": "authcontext_authprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\contexts\\AuthContext.tsx",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_contexts_authcontext_tsx",
+      "_tgt": "authcontext_useauth",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_contexts_authcontext_tsx",
+      "target": "authcontext_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\ssumi\\OneDrive\\Desktop\\s\\coursor\\with Mongodb\\frontend\\lib\\utils.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_lib_utils_ts",
+      "_tgt": "utils_cn",
+      "source": "c_users_ssumi_onedrive_desktop_s_coursor_with_mongodb_frontend_lib_utils_ts",
+      "target": "utils_cn",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

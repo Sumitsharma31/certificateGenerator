@@ -11,7 +11,7 @@ const router = express.Router();
 // @route   POST /api/auth/request-otp
 // @desc    Request OTP for login/signup
 // @access  Public
-router.post('/request-otp', 
+router.post('/request-otp',
   otpLimiter,
   [
     body('email').isEmail().normalizeEmail().withMessage('Please provide a valid email')
@@ -30,11 +30,11 @@ router.post('/request-otp',
       if (user && user.otp.requestedAt) {
         const timeSinceLastRequest = Date.now() - new Date(user.otp.requestedAt).getTime();
         const oneHour = 60 * 60 * 1000;
-        
+
         if (timeSinceLastRequest < oneHour && user.otp.attempts >= 3) {
           const remainingTime = Math.ceil((oneHour - timeSinceLastRequest) / (60 * 1000));
-          return res.status(429).json({ 
-            error: `Too many OTP requests. Please try again in ${remainingTime} minutes.` 
+          return res.status(429).json({
+            error: `Too many OTP requests. Please try again in ${remainingTime} minutes.`
           });
         }
       }
@@ -55,10 +55,10 @@ router.post('/request-otp',
 
       // Send OTP email
       const emailResult = await sendOTPEmail(email, otp);
-      
+
       if (!emailResult.success) {
         console.error('Email sending failed:', emailResult.error);
-        return res.status(500).json({ 
+        return res.status(500).json({
           error: 'Failed to send OTP email',
           details: process.env.NODE_ENV === 'development' ? emailResult.error : undefined
         });
@@ -108,6 +108,13 @@ router.post('/verify-otp',
       // Generate JWT token
       const token = generateToken(user._id);
 
+      // Check if user is "new" (created within last 5 minutes AND mostly default name)
+      // Or simply checks if name is equal to email prefix which is the default
+      const isNewUser = (
+        user.name === user.email.split('@')[0] ||
+        (Date.now() - new Date(user.createdAt).getTime() < 5 * 60 * 1000)
+      );
+
       res.json({
         success: true,
         token,
@@ -117,7 +124,8 @@ router.post('/verify-otp',
           email: user.email,
           role: user.role,
           avatarUrl: user.avatarUrl
-        }
+        },
+        isNewUser // Flag to trigger frontend modal
       });
     } catch (error) {
       console.error('Error verifying OTP:', error);
@@ -125,6 +133,41 @@ router.post('/verify-otp',
     }
   }
 );
+
+// @route   PUT /api/auth/profile
+// @desc    Update user profile (Self)
+// @access  Private
+router.put('/profile', require('../middleware/auth').protect, async (req, res) => {
+  try {
+    const { name } = req.body;
+
+    // Find user
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    if (name) user.name = name;
+
+    await user.save();
+
+    res.json({
+      success: true,
+      message: 'Profile updated successfully',
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        avatarUrl: user.avatarUrl
+      }
+    });
+  } catch (error) {
+    console.error('Error updating profile:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 
 // @route   GET /api/auth/me
 // @desc    Get current user

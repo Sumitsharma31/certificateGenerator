@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
+import api from '@/lib/api'
 import Link from 'next/link'
 
 export default function LoginPage() {
@@ -10,17 +11,21 @@ export default function LoginPage() {
   const [otp, setOtp] = useState('')
   const [step, setStep] = useState<'email' | 'otp'>('email')
   const [loading, setLoading] = useState(false)
-  const { requestOTP, login, user } = useAuth()
+  const { requestOTP, login, user, updateUser } = useAuth()
   const router = useRouter()
 
-  // Redirect if already logged in
+  // Welcome Modal State
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false)
+  const [name, setName] = useState('')
+
+  // Redirect if already logged in (only if not showing modal)
   useEffect(() => {
-    if (user) {
+    if (user && !showWelcomeModal) {
       if (user.role === 'admin') router.push('/admin/dashboard')
       else if (user.role === 'student') router.push('/student/dashboard')
       else router.push('/')
     }
-  }, [user, router])
+  }, [user, router, showWelcomeModal])
 
   const handleRequestOTP = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -43,15 +48,48 @@ export default function LoginPage() {
 
     setLoading(true)
     try {
-      const userData = await login(email, otp)
+      const response = await login(email, otp) as any // Type assertion for extended return
 
-      if (userData) {
-        if (userData.role === 'admin') router.push('/admin/dashboard')
-        else if (userData.role === 'student') router.push('/student/dashboard')
-        else router.push('/')
+      if (response?.user) {
+        if (response.isNewUser) {
+          // New user -> Show Welcome Modal
+          setName(response.user.name || '')
+          setShowWelcomeModal(true)
+        } else {
+          // Existing user -> Redirect
+          if (response.user.role === 'admin') router.push('/admin/dashboard')
+          else if (response.user.role === 'student') router.push('/student/dashboard')
+          else router.push('/')
+        }
       }
     } catch (error) {
       // Error handled in context
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleUpdateProfile = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!name.trim()) return
+
+    setLoading(true)
+    try {
+      await api.put('/auth/profile', { name })
+
+      // Update context and redirect
+      updateUser({ name })
+
+      if (user?.role === 'admin') router.push('/admin/dashboard')
+      else if (user?.role === 'student') router.push('/student/dashboard')
+      else router.push('/')
+
+    } catch (error) {
+      console.error('Failed to update profile:', error)
+      // We still redirect even if update fails to not block user
+      if (user?.role === 'admin') router.push('/admin/dashboard')
+      else if (user?.role === 'student') router.push('/student/dashboard')
+      else router.push('/')
     } finally {
       setLoading(false)
     }
@@ -143,6 +181,45 @@ export default function LoginPage() {
           </Link>
         </div>
       </div>
+
+      {/* WELCOME / UPDATE NAME MODAL */}
+      {showWelcomeModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-8 animate-in fade-in zoom-in duration-200">
+            <h3 className="text-2xl font-bold text-slate-900 mb-2 text-center">
+              Welcome to CertifyNow! 🎉
+            </h3>
+            <p className="text-slate-600 text-center mb-8">
+              Let's get to know you. How would you like your name to appear on certificates and your profile?
+            </p>
+
+            <form onSubmit={handleUpdateProfile}>
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-lg"
+                  placeholder="e.g. John Doe"
+                  autoFocus
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading || !name.trim()}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-lg transition-colors shadow-lg shadow-blue-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Saving...' : 'Get Started →'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

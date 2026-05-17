@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import api from '@/lib/api'
 import toast from 'react-hot-toast'
@@ -163,9 +164,20 @@ const InternshipImagePreview = ({ src, title }: { src?: string, title: string })
 // --- Main Dashboard Component ---
 
 export default function AdminDashboard() {
-  const { user } = useAuth()
+  const { user, loading: authLoading } = useAuth()
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState<TabType>('stats')
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+
+  // Auth guard — redirect if not logged in or not admin
+  useEffect(() => {
+    if (authLoading) return
+    if (!user) {
+      router.replace('/auth/login')
+    } else if (user.role !== 'admin') {
+      router.replace('/')
+    }
+  }, [user, authLoading, router])
 
   // State
   const [stats, setStats] = useState({ totalStudents: 0, totalEnrollments: 0, totalRevenue: 0, certificatesIssued: 0, recentPayments: [] as any[], recentUsers: [] as User[] })

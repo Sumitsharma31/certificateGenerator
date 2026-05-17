@@ -62,7 +62,8 @@ router.post('/verify',
       enrollment.payment.razorpayPaymentId = razorpay_payment_id;
       enrollment.payment.status = 'captured';
       enrollment.payment.capturedAt = new Date();
-      enrollment.status = 'active';
+      enrollment.status = 'completed'; // Directly complete enrollment
+      enrollment.progress = { percentage: 100, tasksCompleted: 0, totalTasks: 0 }; // Set progress to 100%
       enrollment.joinedAt = new Date();
       await enrollment.save();
 

@@ -12,6 +12,10 @@ const certificateSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
+  studentName: {
+    type: String,
+    required: true
+  },
   internshipId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Internship',
