@@ -2,6 +2,10 @@
 
 A full-stack web application where companies/mentors publish internship courses and students apply, pay, complete tasks, and receive verifiable certificates.
 
+## 🚀 Live Demo
+
+**[https://certify-now.vercel.app](https://certify-now.vercel.app)**
+
 ## Features
 
 - 🔐 **Email OTP Authentication** - No passwords, secure OTP-based login
