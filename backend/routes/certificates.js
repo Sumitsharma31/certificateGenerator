@@ -24,8 +24,8 @@ const generateCertificatePDF = async (certificate, user, internship, mentor, enr
   // Generate QR code
   const qrCodeDataUrl = await QRCode.toDataURL(verificationUrl);
 
-  // Load template image
-  const templatePath = path.join(__dirname, '../../frontend/public/certificates/internship-template.png');
+  // Load template image from backend's own assets (included in Docker image)
+  const templatePath = path.join(__dirname, '../assets/certificates/internship-template.png');
   let templateBase64 = '';
   try {
     const templateBuffer = await fs.readFile(templatePath);

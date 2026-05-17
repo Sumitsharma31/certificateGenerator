@@ -78,6 +78,44 @@ export default function CertificatePage() {
       <Navbar />
 
       <div className="flex justify-center py-12 px-4">
+        {/* RESPONSIVE SCALING WRAPPER */}
+        <div
+          className="certificate-scale-wrapper"
+          style={{
+            width: '100%',
+            maxWidth: '1123px',
+            /* Reserve the correct height so the page doesn't collapse */
+            aspectRatio: '1123 / 794',
+            position: 'relative',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '1123px',
+              height: '794px',
+              transformOrigin: 'top left',
+              /* Scale to fit the wrapper width */
+              transform: 'scale(var(--cert-scale, 1))',
+            }}
+            ref={(el) => {
+              if (!el) return;
+              const setScale = () => {
+                const parentWidth = el.parentElement?.offsetWidth ?? 1123;
+                const scale = Math.min(1, parentWidth / 1123);
+                el.style.setProperty('--cert-scale', String(scale));
+                // Also update the wrapper height to match scaled height
+                if (el.parentElement) {
+                  el.parentElement.style.height = `${794 * scale}px`;
+                }
+              };
+              setScale();
+              window.addEventListener('resize', setScale);
+              // Cleanup is not critical for this non-hook usage; React will GC the listener on unmount
+            }}
+          >
         {/* CERTIFICATE CONTAINER */}
         <div className="relative w-[1123px] h-[794px] bg-white shadow-xl">
 
@@ -152,6 +190,8 @@ export default function CertificatePage() {
                 level="H"
               />
             </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
